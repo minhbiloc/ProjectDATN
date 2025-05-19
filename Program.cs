@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using BigProject.Service.Interface;
+using BigProject.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -109,6 +110,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+//app.UseMiddleware<TokenValidationMiddleware>();
+app.UseMiddleware<TokenValidationMiddleware>();
+app.UseCors("AllowAll");
+app.UseHttpsRedirection();
 
 app.UseHttpsRedirection();
 

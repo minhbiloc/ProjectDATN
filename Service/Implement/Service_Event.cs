@@ -150,7 +150,7 @@ namespace BigProject.Service.Implement
             event1.UrlAvatar = UrlAvt;
             dbContext.events.Update(event1);
             await dbContext.SaveChangesAsync();
-            return responseObject.ResponseObjectSuccess("Thêm thành công!", converter_Event.EntityToDTO(event1));
+            return responseObject.ResponseObjectSuccess("Sửa  thành công!", converter_Event.EntityToDTO(event1));
         }
 
         public async Task<ResponseObject<DTO_EventJoin>> JoinAnEvent(int userId, int eventId)
